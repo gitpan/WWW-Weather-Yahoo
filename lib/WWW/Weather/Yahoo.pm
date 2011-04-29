@@ -8,7 +8,7 @@ use XML::XPath::XMLParser;
 BEGIN {
     use Exporter ();
     use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-    $VERSION = '0.01';
+    $VERSION = '0.03';
     @ISA     = qw(Exporter);
 
     #Give a hoot don't pollute, do not export more than needed by default
@@ -17,18 +17,10 @@ BEGIN {
     %EXPORT_TAGS = ();
 }
 
-=head2 sample_function
+=head2 
 
- Usage     : How to use this function/method
- Purpose   : What it does
- Returns   : What it returns
- Argument  : What it wants to know
- Throws    : Exceptions and other anomolies
- Comment   : TODO: use XML::XPath to parse the response.. 
+ Comment   : TODO: use XML::XPath.. 
              (the response is messy, if you can make a fix patch, email to me.)
-             
-
-See Also   : 
 
 =cut
 
