@@ -2,13 +2,13 @@
 
 # t/001_load.t - check module loading and create testing directory
 
-use Test::More tests => 18;
+use Test::More tests => 17;
 
 BEGIN {
     use_ok('WWW::Weather::Yahoo');
     use_ok('WWW::Mechanize');
     use_ok('XML::XPath');
-    use_ok('XML::XPath::XMLParser');
+#   use_ok('XML::XPath::XMLParser');
 }
 
 my $weather = WWW::Weather::Yahoo->new( 'São Paulo, SP', 'c' );

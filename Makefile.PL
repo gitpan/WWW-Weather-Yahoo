@@ -12,6 +12,6 @@ WriteMakefile(
                      'Test::Simple' => 0.44,
                      'WWW::Mechanize' => 0,
                      'XML::XPath' => 0,
-                     'XML::XPath::XMLParser' => 0,
+#                    'XML::XPath::XMLParser' => 0,
                     },
 );

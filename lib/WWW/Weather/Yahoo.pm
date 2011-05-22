@@ -3,12 +3,12 @@ use strict;
 use warnings;
 use WWW::Mechanize;
 use XML::XPath;
-use XML::XPath::XMLParser;
+#use XML::XPath::XMLParser;
 
 BEGIN {
     use Exporter ();
     use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-    $VERSION = '0.03';
+    $VERSION = '0.04';
     @ISA     = qw(Exporter);
 
     #Give a hoot don't pollute, do not export more than needed by default
@@ -16,13 +16,6 @@ BEGIN {
     @EXPORT_OK   = qw();
     %EXPORT_TAGS = ();
 }
-
-=head2 
-
- Comment   : TODO: use XML::XPath.. 
-             (the response is messy, if you can make a fix patch, email to me.)
-
-=cut
 
 sub new {
     my $proto = shift;
@@ -168,32 +161,81 @@ WWW::Weather::Yahoo - Gets information from yahoo weather.
 
     use WWW::Weather::Yahoo;
     my $yw = WWW::Weather::Yahoo->new( 'São Paulo, SP', 'c' );
-    print $yw->{ _weather }{ unit_temperature };
-    print $yw->{ _weather }{ location_country };
-    print Dumper $yw; # for full list of parameters given by yahoo weather.
+    print $yw->{ _weather }{location_city};
+    print $yw->{ _weather }{location_region};       
+    print $yw->{ _weather }{location_country};
+    print $yw->{ _weather }{unit_temperature};
+    print $yw->{ _weather }{unit_distance};
+    print $yw->{ _weather }{unit_pressure};
+    print $yw->{ _weather }{unit_speed};
+    print $yw->{ _weather }{wind_chill};
+    print $yw->{ _weather }{wind_direction};
+    print $yw->{ _weather }{wind_speed};
+    print $yw->{ _weather }{atmosphere_humidity};
+    print $yw->{ _weather }{atmosphere_visibility};
+    print $yw->{ _weather }{atmosphere_pressure};
+    print $yw->{ _weather }{atmosphere_rising};
+    print $yw->{ _weather }{astronomy_sunrise};
+    print $yw->{ _weather }{astronomy_sunset};
+    print $yw->{ _weather }{location_lat};
+    print $yw->{ _weather }{location_lng};
+    print $yw->{ _weather }{condition_text};
+    print $yw->{ _weather }{condition_code};
+    print $yw->{ _weather }{condition_temp};
+    print $yw->{ _weather }{condition_date};
+    print $yw->{ _weather }{condition_img_src};
+    print $yw->{ _weather }{forecast_tomorrow_day};
+    print $yw->{ _weather }{forecast_tomorrow_date};
+    print $yw->{ _weather }{forecast_tomorrow_low};
+    print $yw->{ _weather }{forecast_tomorrow_high};
+    print $yw->{ _weather }{forecast_tomorrow_text};
+    print $yw->{ _weather }{forecast_tomorrow_code};
 
 
 =head1 DESCRIPTION
 
-    Looking for some weather news ? 
-    Well, suit yourself with WWW::Weather::Yahoo. 
-    The purpose of W:W:Y is to bring you all about the weather on any city.
-    If it works for you, great! If you have bugs, patches, improvements...@emailme
+    WWW::Weather::Yahoo retrieves weather data from http://weather.yahoo.com.  
+    Enter the city name and get weather data.
 
-    If you can, create and send me the XPath version of this module.
 
 =head1 USAGE
 
     use WWW::Weather::Yahoo;
     my $yw = WWW::Weather::Yahoo->new( 'São Paulo, SP' , 'c' ); # c = celsius
     my $yw = WWW::Weather::Yahoo->new( 'Miami, FL' , 'f' ); # f = farenheit
-    print $yw->{ _weather }{ unit_temperature };
-    print $yw->{ _weather }{ location_country };
-    print Dumper $yw; # for full list of parameters given by yahoo weather.
+    print $yw->{ _weather }{location_city};
+    print $yw->{ _weather }{location_region};       
+    print $yw->{ _weather }{location_country};
+    print $yw->{ _weather }{unit_temperature};
+    print $yw->{ _weather }{unit_distance};
+    print $yw->{ _weather }{unit_pressure};
+    print $yw->{ _weather }{unit_speed};
+    print $yw->{ _weather }{wind_chill};
+    print $yw->{ _weather }{wind_direction};
+    print $yw->{ _weather }{wind_speed};
+    print $yw->{ _weather }{atmosphere_humidity};
+    print $yw->{ _weather }{atmosphere_visibility};
+    print $yw->{ _weather }{atmosphere_pressure};
+    print $yw->{ _weather }{atmosphere_rising};
+    print $yw->{ _weather }{astronomy_sunrise};
+    print $yw->{ _weather }{astronomy_sunset};
+    print $yw->{ _weather }{location_lat};
+    print $yw->{ _weather }{location_lng};
+    print $yw->{ _weather }{condition_text};
+    print $yw->{ _weather }{condition_code};
+    print $yw->{ _weather }{condition_temp};
+    print $yw->{ _weather }{condition_date};
+    print $yw->{ _weather }{condition_img_src};
+    print $yw->{ _weather }{forecast_tomorrow_day};
+    print $yw->{ _weather }{forecast_tomorrow_date};
+    print $yw->{ _weather }{forecast_tomorrow_low};
+    print $yw->{ _weather }{forecast_tomorrow_high};
+    print $yw->{ _weather }{forecast_tomorrow_text};
+    print $yw->{ _weather }{forecast_tomorrow_code};
 
 =head1 BUGS
 
-    @emailme
+    not any known 
 
 =head1 SUPPORT
 
@@ -221,8 +263,6 @@ LICENSE file included with this module.
 perl(1).
 
 =cut
-
-#################### main pod documentation end ###################
 
 1;
 
