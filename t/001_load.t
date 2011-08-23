@@ -2,7 +2,7 @@
 
 # t/001_load.t - check module loading and create testing directory
 
-use Test::More tests => 17;
+use Test::More ;
 
 BEGIN {
     use_ok('WWW::Weather::Yahoo');
@@ -35,6 +35,17 @@ is( $weather->{_weather}{unit_temperature},
 is( $weather->{_weather}{location_country},
     'Brazil', 'Country for São Paulo should be Brazil.' );
 is( valid_weather_hash_v1( $weather), 1, 'is valid weather.. are the hash keys filled as expected' );
+
+
+#tests by WOEID
+$weather = WWW::Weather::Yahoo->new(455827, 'c');
+is( $weather->{_weather}{unit_temperature},
+    'C', 'Default Unit Temperature is Celcius, as expected.' );
+is( $weather->{_weather}{location_country},
+    'Brazil', 'Country for São Paulo should be Brazil.' );
+is( valid_weather_hash_v1( $weather), 1, 'is valid weather.. are the hash keys filled as expected' );
+
+
 
 $weather = WWW::Weather::Yahoo->new('some invalid city');
 is( $weather, undef,
@@ -84,3 +95,5 @@ sub valid_weather_hash_v1 {
     return 0 if ! exists  $weather->{ _weather }{forecast_tomorrow_code};
     return 1;
 }
+
+done_testing;
