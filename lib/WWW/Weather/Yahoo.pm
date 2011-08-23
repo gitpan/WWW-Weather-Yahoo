@@ -3,12 +3,13 @@ use strict;
 use warnings;
 use WWW::Mechanize;
 use XML::XPath;
+use utf8;
 #use XML::XPath::XMLParser;
 
 BEGIN {
     use Exporter ();
     use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-    $VERSION = '0.05';
+    $VERSION = '0.06';
     @ISA     = qw(Exporter);
 
     #Give a hoot don't pollute, do not export more than needed by default
@@ -45,9 +46,6 @@ sub new {
         return undef;
     }
     $self->{_woeid} = $woeid;
-    warn $woeid;
-    warn $woeid;
-    warn $woeid;
 
     my $weather_url =
       "http://weather.yahooapis.com/forecastrss?w=$woeid&u=$unit";
@@ -164,12 +162,13 @@ m/yweather:forecast day="(.+)"( +)date="(.+)"( +)low="(.+)"( +)high="(.+)"( +)te
 
 =head1 NAME
 
-WWW::Weather::Yahoo - Gets information from yahoo weather.
+    WWW::Weather::Yahoo - Gets information from yahoo weather.
 
 =head1 SYNOPSIS
 
     use WWW::Weather::Yahoo;
     my $yw = WWW::Weather::Yahoo->new( 'São Paulo, SP', 'c' );#by city name
+    my $yw = WWW::Weather::Yahoo->new( 'São Paulo, SP', 'f' );#by city name
     my $yw = WWW::Weather::Yahoo->new( 455827 , 'c' );        #by woeid
     print $yw->{ _weather }{location_city};
     print $yw->{ _weather }{location_region};       

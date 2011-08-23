@@ -21,4 +21,4 @@ requires:
   Test::Simple: 0.44
   WWW::Mechanize: 0
   XML::XPath: 0
-version: 0.05
+version: 0.06
