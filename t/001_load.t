@@ -47,19 +47,19 @@ is( valid_weather_hash_v1( $weather), 1, 'is valid weather.. are the hash keys f
 
 
 
-$weather = WWW::Weather::Yahoo->new('some invalid city');
-is( $weather, undef,
-'Invalid city name or city not found, try looking up your city name at http://weather.yahoo.com/ and use the correct city name.'
-);
-is( valid_weather_hash_v1( $weather), 0, 'is valid weather.. are the hash keys filled as expected' );
+#   $weather = WWW::Weather::Yahoo->new('some invalid city');
+#   is( $weather, undef,
+#   'Invalid city name or city not found, try looking up your city name at http://weather.yahoo.com/ and use the correct city name.'
+#   );
+#   is( valid_weather_hash_v1( $weather), 0, 'is valid weather.. are the hash keys filled as expected' );
 
 
 
-$weather = WWW::Weather::Yahoo->new( );
-is( $weather, undef,
-'Invalid city name or city not found, try looking up your city name at http://weather.yahoo.com/ and use the correct city name.'
-);
-is( valid_weather_hash_v1( $weather), 0, 'is valid weather.. are the hash keys filled as expected' );
+#   $weather = WWW::Weather::Yahoo->new( );
+#   is( $weather, undef,
+#   'Invalid city name or city not found, try looking up your city name at http://weather.yahoo.com/ and use the correct city name.'
+#   );
+#   is( valid_weather_hash_v1( $weather), 0, 'is valid weather.. are the hash keys filled as expected' );
 
 
 sub valid_weather_hash_v1 {
